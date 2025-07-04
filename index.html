@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proximity Hazard Detection</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Proximity Hazard Detection</h1>
+
+        <div class="controls">
+            <button onclick="startDetection()">Start Detection</button>
+            <button onclick="stopDetection()">Stop Detection</button>
+        </div>
+
+        <div class="video-frame">
+            <img src="{{ url_for('video_feed') }}" alt="Video Feed">
+        </div>
+    </div>
+
+    <script>
+        function startDetection() {
+            fetch('/start_detection', { method: 'POST' });
+        }
+
+        function stopDetection() {
+            fetch('/stop_detection', { method: 'POST' });
+        }
+    </script>
+</body>
+</html>
